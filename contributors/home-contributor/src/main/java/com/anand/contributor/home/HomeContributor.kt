@@ -4,5 +4,5 @@ import com.anand.contributor.contributor.api.IContributor
 
 class HomeContributor : IContributor {
     override val id = "home-contributor"
-    override fun appBarContribution()= HomeAppBarContribution()
+    override fun bottomNavigationContribution()= HomeBottomNavigationContribution()
 }

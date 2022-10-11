@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        viewModel.appBarContributions.observe(this) { contributions ->
+        viewModel.bottomNavigationContributions.observe(this) { contributions ->
             navView.menu.clear()
             contributions.forEach { contribution ->
                 contribution.state.let { state ->

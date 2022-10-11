@@ -4,5 +4,5 @@ import com.anand.contributor.contributor.api.IContributor
 
 class NotificationContributor : IContributor {
     override val id = "notification-contributor"
-    override fun appBarContribution() = NotificationAppBarContribution()
+    override fun bottomNavigationContribution() = NotificationBottomNavigationContribution()
 }

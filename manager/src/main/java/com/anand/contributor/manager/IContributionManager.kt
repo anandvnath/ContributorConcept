@@ -1,7 +1,7 @@
 package com.anand.contributor.manager
 
-import com.anand.contributor.contributor.api.IAppBarContribution
+import com.anand.contributor.contributor.api.IBottomNavigationContribution
 
 interface IContributionManager {
-    fun getAppBarContributions(): List<IAppBarContribution>
+    fun getBottomNavigationContributions(): List<IBottomNavigationContribution>
 }

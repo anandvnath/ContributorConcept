@@ -4,22 +4,24 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.anand.contributor.contributor.api.IAppBarContribution
+import com.anand.contributor.contributor.api.IBottomNavigationContribution
 import com.anand.contributor.manager.ContributionManager
 import com.anand.contributor.manager.IContributionManager
 
 class MainViewModel: ViewModel() {
     private val manager: IContributionManager = ContributionManager(ContributorRegistry())
-    private val _appBarContributions: MutableLiveData<List<IAppBarContribution>> = MutableLiveData()
-    val appBarContributions: LiveData<List<IAppBarContribution>> = _appBarContributions
+    private val _bottomNavigationContributions: MutableLiveData<List<IBottomNavigationContribution>> = MutableLiveData()
+    val bottomNavigationContributions: LiveData<List<IBottomNavigationContribution>> = _bottomNavigationContributions
 
     init {
-        _appBarContributions.value = manager.getAppBarContributions()
+        _bottomNavigationContributions.value = manager.getBottomNavigationContributions()
     }
 
-    fun getFragment(id: Int): Class<out Fragment>? {
-        return _appBarContributions.value?.first {
-            it.state.menuItemId == id
+    fun getFragment(itemId: Int): Class<out Fragment>? {
+        return _bottomNavigationContributions.value?.first {
+            // For brevity we set the itemId of the menu item that represents a contribution
+            // to its icon drawable's int value.
+            it.state.icon == itemId
         }?.fragment()
     }
 }

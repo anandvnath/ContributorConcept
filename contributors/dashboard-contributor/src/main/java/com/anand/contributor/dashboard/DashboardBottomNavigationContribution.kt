@@ -1,12 +1,12 @@
 package com.anand.contributor.dashboard
 
 import androidx.fragment.app.Fragment
-import com.anand.contributor.contributor.api.AppBarContributionState
-import com.anand.contributor.contributor.api.IAppBarContribution
+import com.anand.contributor.contributor.api.BottomNavigationContributionState
+import com.anand.contributor.contributor.api.IBottomNavigationContribution
 
-class DashboardAppBarContribution : IAppBarContribution {
+class DashboardBottomNavigationContribution : IBottomNavigationContribution {
     override val id: String = "dashboard-contribution"
-    override val state = AppBarContributionState(
+    override val state = BottomNavigationContributionState(
         text = "Dashboard",
         icon = R.drawable.ic_dashboard_black_24dp,
         order = 2

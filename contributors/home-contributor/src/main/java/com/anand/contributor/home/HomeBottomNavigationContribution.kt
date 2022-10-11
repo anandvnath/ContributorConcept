@@ -1,11 +1,11 @@
 package com.anand.contributor.home
 
 import androidx.fragment.app.Fragment
-import com.anand.contributor.contributor.api.AppBarContributionState
-import com.anand.contributor.contributor.api.IAppBarContribution
+import com.anand.contributor.contributor.api.BottomNavigationContributionState
+import com.anand.contributor.contributor.api.IBottomNavigationContribution
 
-class HomeAppBarContribution : IAppBarContribution {
-    override val state = AppBarContributionState(
+class HomeBottomNavigationContribution : IBottomNavigationContribution {
+    override val state = BottomNavigationContributionState(
         text = "Home",
         icon = R.drawable.ic_home_black_24dp,
         order = 1

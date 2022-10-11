@@ -1,12 +1,12 @@
 package com.anand.contributor.notification
 
 import androidx.fragment.app.Fragment
-import com.anand.contributor.contributor.api.AppBarContributionState
-import com.anand.contributor.contributor.api.IAppBarContribution
+import com.anand.contributor.contributor.api.BottomNavigationContributionState
+import com.anand.contributor.contributor.api.IBottomNavigationContribution
 
-class NotificationAppBarContribution: IAppBarContribution {
+class NotificationBottomNavigationContribution: IBottomNavigationContribution {
     override val id: String = "notification-contribution"
-    override val state = AppBarContributionState(
+    override val state = BottomNavigationContributionState(
         text = "Notification",
         icon = R.drawable.ic_notifications_black_24dp,
         order = 3
