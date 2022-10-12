@@ -17,11 +17,11 @@ class MainViewModel: ViewModel() {
         _bottomNavigationContributions.value = manager.getBottomNavigationContributions()
     }
 
-    fun getFragment(itemId: Int): Class<out Fragment>? {
+    fun getFragment(order: Int): Class<out Fragment>? {
         return _bottomNavigationContributions.value?.first {
-            // For brevity we set the itemId of the menu item that represents a contribution
-            // to its icon drawable's int value.
-            it.state.icon == itemId
+            // For brevity we are using order to identify the contribution.
+            // This can be ID based as well. For that we need a way to map menuItems with contributions.
+            it.state.order == order
         }?.fragment()
     }
 }

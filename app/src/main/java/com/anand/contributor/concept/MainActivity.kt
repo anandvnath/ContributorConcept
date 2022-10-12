@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val navView = binding.navView
         fragmentContainer = binding.fragmentContainerView
         navView.setOnItemSelectedListener { menuItem ->
-            viewModel.getFragment(menuItem.itemId)?.let { fragment ->
+            viewModel.getFragment(menuItem.order)?.let { fragment ->
                 loadFragment(fragment)
             }
             true
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             navView.menu.clear()
             contributions.forEach { contribution ->
                 contribution.state.let { state ->
-                    val menuItem = navView.menu.add(Menu.NONE, state.icon, state.order, state.text)
+                    val menuItem = navView.menu.add(Menu.NONE, Menu.NONE, state.order, state.text)
                     menuItem.icon = ResourcesCompat.getDrawable(resources, state.icon, theme)
                 }
             }
