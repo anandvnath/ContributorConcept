@@ -1,7 +1,7 @@
 package com.anand.contributor.concept
 
 import android.os.Bundle
-import android.view.Menu
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val navView = binding.navView
         fragmentContainer = binding.fragmentContainerView
         navView.setOnItemSelectedListener { menuItem ->
-            viewModel.getFragment(menuItem.order)?.let { fragment ->
+            viewModel.getFragment(menuItem.actionView.tag.toString())?.let { fragment ->
                 loadFragment(fragment)
             }
             true
@@ -34,8 +34,13 @@ class MainActivity : AppCompatActivity() {
             navView.menu.clear()
             contributions.forEach { contribution ->
                 contribution.state.let { state ->
-                    val menuItem = navView.menu.add(Menu.NONE, Menu.NONE, state.order, state.text)
+                    val menuItem = navView.menu.add(state.text)
                     menuItem.icon = ResourcesCompat.getDrawable(resources, state.icon, theme)
+                    // Associate contribution id to menu items using action view.
+                    // Could also maintain a map to achieve this association.
+                    menuItem.actionView = View(this).apply {
+                        tag = contribution.id
+                    }
                 }
             }
             loadFragment(contributions.first().fragment())
